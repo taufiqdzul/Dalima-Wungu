@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a70c616-92a4-43ee-a1d4-9d032bcaf22d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="id_transaksi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select penyewa.nama, penyewa.alamat, barang.kode_barang, barang.nama_barang, barang.jenis_barang, barang.harga_sewa, sewa.qty, sewa.total, transaksi.tanggal_pinjam, transaksi.tanggal_pengembalian, transaksi.diskon, transaksi.total_transaksi, transaksi.pembayaran from penyewa, barang, sewa, transaksi where penyewa.id_penyewa = sewa.id_penyewa and barang.kode_barang = sewa.kode_barang and transaksi.id_transaksi and transaksi.id_transaksi = '$p!{id_transaksi}']]>
+	</queryString>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga_sewa" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_pinjam" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_pengembalian" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="diskon" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_transaksi" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pembayaran" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="164" height="126" uuid="102df29e-fca8-4a9d-9c87-0572c3733d6a"/>
+				<imageExpression><![CDATA["coffee.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="170" y="0" width="263" height="62" uuid="1df5d1cb-e3df-4607-9a5c-a84ce1ec994b"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Coffee Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="219" y="62" width="196" height="22" uuid="9b90df29-ff43-4d3b-9d11-1f626ee8e18b"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Coffee SubTitle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="94" width="383" height="42" uuid="9cb86c9a-a955-4fd4-9fe7-2ca2390602e2"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor purus gravida arcu aliquam mattis. Donec et nulla libero, ut varius massa. Nulla sed turpis elit. Etiam aliquet mauris a ligula hendrerit in auctor leo lobortis.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="433" y="-115" width="267" height="209" uuid="100f0d03-bbf2-42fd-8dfa-5854791bcbd4"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1e4d2ddb-2999-4191-a477-9e5a1276f2c2"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="42" height="15" forecolor="#736343" uuid="0d454ffd-c530-47a3-8c82-169e8c781ad4"/>
+				<text><![CDATA[barang_kode_barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="42" y="0" width="42" height="15" forecolor="#736343" uuid="3f4f86ef-6576-4e4c-bebb-e5f773081f48"/>
+				<text><![CDATA[barang_jenis_barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="84" y="0" width="42" height="15" forecolor="#736343" uuid="6b29fdd9-c3c2-4abf-956c-2e521878d99b"/>
+				<text><![CDATA[barang_harga_sewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="126" y="0" width="42" height="15" forecolor="#736343" uuid="1e97878a-5c47-4dae-ab97-e5825e6d311f"/>
+				<text><![CDATA[penyewa_nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="168" y="0" width="42" height="15" forecolor="#736343" uuid="4bcdf159-b119-47ce-a53f-e16f8d0384bc"/>
+				<text><![CDATA[penyewa_alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="210" y="0" width="42" height="15" forecolor="#736343" uuid="bea46b2b-cdb3-41dd-8cb8-d080861faedc"/>
+				<text><![CDATA[sewa_qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="252" y="0" width="42" height="15" forecolor="#736343" uuid="2084271a-74df-4f72-b0c4-415b7bb9cbe2"/>
+				<text><![CDATA[sewa_total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="294" y="0" width="42" height="15" forecolor="#736343" uuid="ca4c69bc-c356-48f1-a9af-fc943f9b6bf4"/>
+				<text><![CDATA[transaksi_tanggal_transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="336" y="0" width="42" height="15" forecolor="#736343" uuid="770ba4f3-69c0-4fec-b052-ca5a4959da67"/>
+				<text><![CDATA[transaksi_tanggal_pengembalian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="378" y="0" width="42" height="15" forecolor="#736343" uuid="df83da20-12df-4a6b-8690-7ad51ed9f713"/>
+				<text><![CDATA[transaksi_total_transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="420" y="0" width="42" height="15" forecolor="#736343" uuid="a34f8346-af47-446f-b420-8fb8438ebdf8"/>
+				<text><![CDATA[transaksi_diskon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="462" y="0" width="42" height="15" forecolor="#736343" uuid="b06688be-9e61-4902-b33e-1d70b018b39d"/>
+				<text><![CDATA[transaksi_pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="504" y="0" width="42" height="15" forecolor="#736343" uuid="53051588-9e87-4fb7-b7d9-d8378777897a"/>
+				<text><![CDATA[transaksi_tanggal_pinjam]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="27ac2404-62f5-4d53-aa8d-e4b96152ce48"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="42" height="15" uuid="fc46e2f4-5911-48ed-b9be-290ca246cfb8"/>
+					<textFieldExpression><![CDATA[$F{barang_kode_barang}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="42" y="0" width="42" height="15" uuid="39e29508-2f30-4f61-9e4e-ebe2b1715685"/>
+					<textFieldExpression><![CDATA[$F{barang_jenis_barang}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="84" y="0" width="42" height="15" uuid="b98ad33e-ef7c-4942-b488-07895fe13515"/>
+					<textFieldExpression><![CDATA[$F{barang_harga_sewa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="126" y="0" width="42" height="15" uuid="9037fbf8-f378-4d18-a689-8f2ecc573d77"/>
+					<textFieldExpression><![CDATA[$F{penyewa_nama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="168" y="0" width="42" height="15" uuid="e095f3a4-60c8-4b7a-9677-5fe06ca7714f"/>
+					<textFieldExpression><![CDATA[$F{penyewa_alamat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="210" y="0" width="42" height="15" uuid="d395bfd0-b27d-4614-a726-1d4080405576"/>
+					<textFieldExpression><![CDATA[$F{sewa_qty}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="252" y="0" width="42" height="15" uuid="d73461de-2b6e-4554-896d-19f4b207bbd1"/>
+					<textFieldExpression><![CDATA[$F{sewa_total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="294" y="0" width="42" height="15" uuid="877614a6-83ed-4648-8b3e-5739f5f9d51c"/>
+					<textFieldExpression><![CDATA[$F{transaksi_tanggal_transaksi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="336" y="0" width="42" height="15" uuid="f06da0e4-44bd-447e-a1a2-b160c129d058"/>
+					<textFieldExpression><![CDATA[$F{transaksi_tanggal_pengembalian}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="378" y="0" width="42" height="15" uuid="525f0f48-4f7f-439d-a6dc-6b8c79c58101"/>
+					<textFieldExpression><![CDATA[$F{transaksi_total_transaksi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="420" y="0" width="42" height="15" uuid="3417dae6-9a96-4fa9-bc9c-ff7b4d3f557f"/>
+					<textFieldExpression><![CDATA[$F{transaksi_diskon}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="462" y="0" width="42" height="15" uuid="2d9da6c6-34cc-46c7-9ef7-ddc96a60d0e7"/>
+					<textFieldExpression><![CDATA[$F{transaksi_pembayaran}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="504" y="0" width="42" height="15" uuid="54ee8cff-ceaa-4da2-8942-ef105c14b07e"/>
+					<textFieldExpression><![CDATA[$F{transaksi_tanggal_pinjam}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="b049448e-07ad-43c2-80dc-ce2e08a02664"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="556cac91-7052-454d-bc69-82c31f6fd940"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="1969c4e2-b878-4929-b3af-d018a7b725e7"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="89d7c85e-aa18-4d55-bdce-5fb18bbdc40b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="29fa14e8-72b3-445f-bf18-640a116cc3dd"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="297" pageHeight="421" columnWidth="257" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6fe798a-d9f5-48f1-a73d-20697eef107e">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="148"/>
+	<parameter name="id_transaksi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select penyewa.nama, penyewa.alamat, transaksi.tanggal_pinjam, transaksi.tanggal_pengembalian, barang.kode_barang, barang.nama_barang, barang.jenis_barang, sewa.qty, sewa.total, transaksi.diskon, transaksi.total_transaksi, transaksi.pembayaran, transaksi.kembalian from penyewa, transaksi, barang, sewa where penyewa.id_penyewa = sewa.id_penyewa and transaksi.id_transaksi = sewa.id_transaksi and barang.kode_barang = sewa.kode_barang and transaksi.id_transaksi = '$P!{id_transaksi}']]>
+	</queryString>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_pinjam" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_pengembalian" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="diskon" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_transaksi" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pembayaran" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="17" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="1" width="257" height="16" uuid="33d98e31-89ae-408f-83d5-b029d3e4080b"/>
+				<imageExpression><![CDATA["E:\\Study\\STTB\\Semester 2\\Algoritma & Pemrograman\\UAS\\TugasBesar\\img\\header report.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="257" height="15" uuid="3d013bb2-491f-472c-9ba8-959ebb06b612"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jl. Moh. Toha]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="39" width="36" height="11" uuid="554b55e9-ce63-4715-869c-867df07a2230"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Kode Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="39" width="56" height="11" uuid="77241089-c922-44d9-9ec9-f2990d3b96eb"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="39" width="40" height="11" uuid="bea200ca-b180-48d1-922c-53023c5d3753"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Jenis Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="39" width="40" height="11" uuid="602a650b-0b66-410c-b95a-c33bc0c669da"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="39" width="40" height="11" uuid="3d697cf6-9a7a-4a6b-b1ed-36064d6b47b7"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="13" uuid="27544c5f-4dee-46d6-9747-fc280a5b5e14"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Nama   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="18" width="48" height="13" uuid="0a208d01-6f1c-4263-aad5-5385fc752546"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Alamat :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="0" width="78" height="13" uuid="f55de56e-6fca-4810-acbe-d5bdcb1e664e"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Tanggal Pinjam :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="18" width="78" height="13" uuid="b9a39c8e-4be3-4bc4-9fe7-6c4769462576"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Tanggal Kembali :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="0" width="67" height="13" uuid="b3d11069-b342-4785-b57f-9b9feb59286a"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="18" width="67" height="13" uuid="23159492-aaca-426e-833a-4c966d7cec04"/>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="56" height="13" uuid="eb1dedcf-be56-4ea0-b85c-0f925be9147e"/>
+				<textFieldExpression><![CDATA[$F{tanggal_pinjam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="18" width="56" height="13" uuid="b0b02f1b-2c21-4e3d-a984-07185c80c449"/>
+				<textFieldExpression><![CDATA[$F{tanggal_pengembalian}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="36" height="11" uuid="b530c40d-351b-4d52-81c3-6db45e7e51f1"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kode_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="0" width="56" height="11" uuid="3896f174-ec1c-4442-9f0a-dc86c167dc40"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="0" width="39" height="11" uuid="0a9e5c53-54ce-4b1f-8675-d74d6a7ad338"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenis_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="0" width="40" height="11" uuid="a35be946-a7f4-4381-a095-533d1d659e13"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="0" width="40" height="11" uuid="2eefc591-229a-4107-80d8-e5ffdd3af461"/>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement x="155" y="0" width="50" height="13" uuid="1c37a58e-0de5-400c-90c2-968d835baf66"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Diskon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="16" width="50" height="13" uuid="0089bcbd-9a04-4ca8-9fae-e7e140f0426d"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="33" width="50" height="13" uuid="5d4568d2-3f39-425a-b33b-d0099194312a"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="49" width="50" height="13" uuid="e5127c66-c9eb-4015-a00f-92c9e77097b6"/>
+				<textElement>
+					<font fontName="Roboto"/>
+				</textElement>
+				<text><![CDATA[Kembalian]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="205" y="0" width="52" height="13" uuid="547927e4-48f1-4297-90e3-69b4e5cb0f64"/>
+				<textFieldExpression><![CDATA[$F{diskon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="16" width="52" height="13" uuid="85c1997a-faf3-43fe-bdce-036daae93980"/>
+				<textFieldExpression><![CDATA[$F{total_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="33" width="52" height="13" uuid="cd7f0256-95ab-4960-92c8-7b3529a1a36a"/>
+				<textFieldExpression><![CDATA[$F{pembayaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="49" width="52" height="13" uuid="addca2ef-4bac-4e3e-857c-c245ef1fb2e4"/>
+				<textFieldExpression><![CDATA[$F{kembalian}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>
